@@ -1,14 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-<<<<<<< HEAD
 import java.io.*;
 import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Vector;
-=======
-import java.util.ArrayList;
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
 
 /**
  * Created by jipay on 24/04/2015.
@@ -20,7 +16,6 @@ public class Vue extends JFrame{
 
     private JMenuBar menuBar;
     private JMenu menuOption;
-<<<<<<< HEAD
     private JButton hint;
     private JButton pause;
     private JMenuItem menuScore, menuNouvellePartie;
@@ -30,10 +25,6 @@ public class Vue extends JFrame{
     private TheProgressBar progressBar;
     private JPanel contentPane;
 
-=======
-    private JMenuItem menuScore, menuNouvellePartie;
-
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
     public Vue(Model model)
     {
         super();
@@ -42,7 +33,6 @@ public class Vue extends JFrame{
         creerMenu();
         drawMap();
 
-<<<<<<< HEAD
         pack();
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,15 +40,6 @@ public class Vue extends JFrame{
     }
 
     public void initAttribut(Model model)
-=======
-        setSize(600, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setVisible(true);
-
-    }
-
-    private void initAttribut(Model model)
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
     {
         this.model = model;
 
@@ -69,17 +50,13 @@ public class Vue extends JFrame{
             {
                 tableauBijouButton[i][j] = new Bijou(model.getTableauBijou()[i][j], new Coord(i, j));
                 tableauBijouButton[i][j].setIcon(model.getTextures()[model.getTableauBijou()[i][j].getIndex()]);
-<<<<<<< HEAD
                 tableauBijouButton[i][j].setBackground(Color.white);
-=======
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
             }
         }
 
         menuOption = new JMenu("Options");
         menuScore = new JMenuItem("Meilleurs Scores");
         menuNouvellePartie = new JMenuItem("Nouvelle Partie");
-<<<<<<< HEAD
 
         hint = new JButton("hint");
         pause = new JButton("pause");
@@ -97,13 +74,10 @@ public class Vue extends JFrame{
     public JButton getPause()
     {
         return pause;
-=======
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
     }
 
     public void drawMap()
     {
-<<<<<<< HEAD
         contentPane.removeAll();
         contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
         JPanel ligneIndication = new JPanel();
@@ -133,15 +107,10 @@ public class Vue extends JFrame{
 
         JPanel sousContentPane = new JPanel();
         sousContentPane.setLayout(new GridLayout(8, 8));
-=======
-        JPanel contentPane = new JPanel();
-        contentPane.setLayout(new GridLayout(8, 8));
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
         for(int i = 0; i < tableauBijouButton.length; i++)
         {
             for(int j = 0; j < tableauBijouButton.length; j++)
             {
-<<<<<<< HEAD
                 sousContentPane.add(tableauBijouButton[i][j]);
                 tableauBijouButton[i][j].setPreferredSize(new Dimension(60, 60));
             }
@@ -151,12 +120,6 @@ public class Vue extends JFrame{
         contentPane.add(progressBar.getProgressBar());
 
         //coloreCoupPossible();
-=======
-                contentPane.add(tableauBijouButton[i][j]);
-            }
-        }
-        coloreCoupPossible();
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
         setContentPane(contentPane);
     }
 
@@ -180,16 +143,12 @@ public class Vue extends JFrame{
         menuOption.add(menuScore);
 
         menuBar.add(menuOption);
-<<<<<<< HEAD
         menuBar.add(pause);
         menuBar.add(hint);
-=======
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
 
         setJMenuBar(menuBar);
     }
 
-<<<<<<< HEAD
     public void ajouterAllActionListener(ActionListener actionListener)
     {
         for(int i = 0; i < model.getTableauBijou().length; i++) {
@@ -204,13 +163,6 @@ public void ajouterActionListener(ActionListener actionListener, AbstractButton 
     abstractButton.addActionListener(actionListener);
 }
 
-=======
-    public void ajouterActionListener(ActionListener actionListener, AbstractButton abstractButton)
-    {
-        abstractButton.addActionListener(actionListener);
-    }
-
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
     public JMenuItem getMenuScore()
     {
         return menuScore;
@@ -236,7 +188,6 @@ public void ajouterActionListener(ActionListener actionListener, AbstractButton 
         }
     }
 
-<<<<<<< HEAD
     public void coloreUnCoupPossible()
     {
         if(model.getCoupsPossibles().size() == 0)
@@ -249,14 +200,11 @@ public void ajouterActionListener(ActionListener actionListener, AbstractButton 
         tableauBijouButton[coupPossible.getCoord1().getX()][coupPossible.getCoord1().getY()].setBackground(Color.BLACK);
     }
 
-=======
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
     public void actualiserCase(Coord coord)
     {
         tableauBijouButton[coord.getX()][coord.getY()].setIcon(model.getTextures()[model.getTableauBijou()[coord.getX()][coord.getY()].getIndex()]);
     }
 
-<<<<<<< HEAD
     public ArrayList<ArrayList<Coord> > coloreLigneCombo()
     {
         ArrayList<ArrayList<Coord> > lignesCombo;
@@ -289,35 +237,6 @@ public void ajouterActionListener(ActionListener actionListener, AbstractButton 
             actualiserTableau();
         }
         return lignesCombo;
-=======
-    public void coloreLigneCombo()
-    {
-        ArrayList<ArrayList<Coord> > lignesCombo;
-        do {
-            lignesCombo = model.getLignesCombo();
-            if(lignesCombo.size() != 0)
-            {
-                for (int i = 0; i < lignesCombo.size(); i++) {
-                    for (int j = 0; j < lignesCombo.get(i).size(); j++) {
-                        tableauBijouButton[lignesCombo.get(i).get(j).getX()][lignesCombo.get(i).get(j).getY()].setBackground(Color.CYAN);
-                    }
-                }
-
-                /*try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
-                }*/
-
-                for (int i = 0; i < lignesCombo.size(); i++) {
-                    for (int j = 0; j < lignesCombo.get(i).size(); j++) {
-                        tableauBijouButton[lignesCombo.get(i).get(j).getX()][lignesCombo.get(i).get(j).getY()].setBackground(Color.WHITE);
-                    }
-                }
-                actualiserTableau();
-            }
-        } while (lignesCombo.size() > 0);
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
     }
 
     public void actualiserTableau()
@@ -335,7 +254,6 @@ public void ajouterActionListener(ActionListener actionListener, AbstractButton 
                 }
             }
 
-<<<<<<< HEAD
             //coloreCoupPossible();
         }
     }
@@ -501,10 +419,4 @@ public void ajouterActionListener(ActionListener actionListener, AbstractButton 
     {
         return model;
     }
-=======
-            coloreCoupPossible();
-        }
-    }
-
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
 }

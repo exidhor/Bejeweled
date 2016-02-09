@@ -15,7 +15,6 @@ public class Model {
     private TypeBijou[][] tableau;
     private ImageIcon[] typeTexure;
     private ArrayList<Coup> coupsPossibles;
-<<<<<<< HEAD
     private int score;
     private int tries;
     private int level;
@@ -47,10 +46,6 @@ public class Model {
 
     public void genererTableau()
     {
-=======
-
-    public Model() {
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
         tableau = new TypeBijou[8][8];
         for (int i = 0; i < tableau.length; i++) {
             for (int j = 0; j < tableau[i].length; j++) {
@@ -63,7 +58,6 @@ public class Model {
         {
             try
             {
-<<<<<<< HEAD
                 //System.out.println(coupsPossibles.get(i));
             }
             catch(ArrayIndexOutOfBoundsException e)
@@ -71,16 +65,6 @@ public class Model {
                 //System.out.println("erreur dans coup possible");
             }
         }
-=======
-                System.out.println(coupsPossibles.get(i));
-            }
-            catch(ArrayIndexOutOfBoundsException e)
-            {
-                System.out.println("erreur dans coup possible");
-            }
-        }
-        initialiserTextures();
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
     }
 
     public ArrayList<Coup> getCoupsPossibles()
@@ -98,11 +82,7 @@ public class Model {
         typeTexure =  new ImageIcon[8];
 
         for (TypeBijou typeBijou : TypeBijou.values()) {
-<<<<<<< HEAD
             typeTexure[typeBijou.getIndex()] = new ImageIcon(getPathTexture(typeBijou));
-=======
-            typeTexure[typeBijou.getIndex()] = new ImageIcon(getPathTexture(typeBijou));;
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
         }
 
     }
@@ -121,14 +101,10 @@ public class Model {
         return TypeBijou.values()[pick];
     }
 
-<<<<<<< HEAD
     public Coup getUnCoupPossible()
     {
         return coupsPossibles.get(rand.nextInt(coupsPossibles.size()));
     }
-
-=======
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
     private TypeBijou randomBijou(TypeBijou type1) {
         TypeBijou randPick;
         do
@@ -258,11 +234,7 @@ public class Model {
         for(int j = 0; j < tableau.length; j++)
         {
             currentType = tableau[0][j];
-<<<<<<< HEAD
             for(int i = 0; i < tableau.length; i++)
-=======
-            for(int i = 0; i < tableau[j].length; i++)
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
             {
                 //System.out.println(i + " " + j + " " + "currentType " + currentType );
                 if(currentType == tableau[i][j] && i != 0)
@@ -284,11 +256,7 @@ public class Model {
                 }
 
 
-<<<<<<< HEAD
                 //en position chapeau
-=======
-                //System.out.println("sinon");
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
                 //a gauche
                 if(j - 1 >= 0 && i + 2 <= 7)
                 {
@@ -382,7 +350,6 @@ public class Model {
         switch(type)
         {
             case VERT :
-<<<<<<< HEAD
                 return path + "icon_vert.jpg";
             case ROUGE :
                 return path + "icon_rouge.jpg";
@@ -398,23 +365,6 @@ public class Model {
                 return path + "icon_bleu.jpg";
             case ROSE :
                 return path + "icon_rose.jpg";
-=======
-                return path + "vert_little.png";
-            case ROUGE :
-                return path + "rouge_little.png";
-            case JAUNE :
-                return path + "jaune_little.png";
-            case GRIS :
-                return path + "gris_little.png";
-            case ORANGE :
-                return path + "orange_little.png";
-            case VIOLET :
-                return path + "violet_little.png";
-            case BLEU :
-                return path + "bleu_little.png";
-            case ROSE :
-                return path + "rose_little.png";
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
             default :
                 System.out.println("erreur durant l'attribution du chemin de la texture (getTexturePath(" + type + ")");
                 return "";
@@ -442,7 +392,6 @@ public class Model {
     public ArrayList<ArrayList<Coord> > getLignesCombo()
     {
         ArrayList<ArrayList<Coord> > lignesCombo = new ArrayList<ArrayList<Coord>>();
-<<<<<<< HEAD
         ArrayList<Coord> ligne;
         for(int i  = 0; i < tableau.length; i++)
         {
@@ -570,138 +519,3 @@ public class Model {
         level++;
     }
 }
-
-
-/*
- public ArrayList<ArrayList<Coord> > getLignesCombo()
-    {
-        ArrayList<ArrayList<Coord> > lignesCombo = new ArrayList<ArrayList<Coord>>();
-=======
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
-        int nbBijouConsecutif;
-        TypeBijou type;
-        for(int i = 0; i < tableau.length; i++)
-        {
-            nbBijouConsecutif = 1;
-            type = tableau[i][0];
-            for(int j = 1; j < tableau[i].length;j++)
-            {
-<<<<<<< HEAD
-                boolean estEnFinDeLigne = false;
-                if(type == tableau[i][j])
-                {
-                    nbBijouConsecutif++;
-                    if(j == tableau[i].length - 1)
-                    {
-                        estEnFinDeLigne = true;
-                    }
-=======
-                if(type == tableau[i][j])
-                {
-                    nbBijouConsecutif++;
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
-                }
-                if(type != tableau[i][j] || j == tableau[i].length - 1)
-                {
-                    if(nbBijouConsecutif >= 3)
-                    {
-                        ArrayList<Coord> ligne = new ArrayList<Coord>();
-<<<<<<< HEAD
-                        System.out.print("LigneCombo ");
-                        for(int compteurBijou = nbBijouConsecutif; compteurBijou > 0; compteurBijou--)
-                        {
-                            ligne.add(new Coord(i, j - compteurBijou));
-                            System.out.print("(" + i + ", " + (j - compteurBijou) + ")");
-                        }
-                        if(estEnFinDeLigne)
-                        {
-                            ligne.add(new Coord(i, j));
-                        }
-                        System.out.println("end");
-=======
-                        for(int compteurBijou = nbBijouConsecutif; compteurBijou > 0; compteurBijou--)
-                        {
-                            ligne.add(new Coord(i, j - compteurBijou));
-                        }
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
-                        lignesCombo.add(ligne);
-                    }
-                    type = tableau[i][j];
-                    nbBijouConsecutif = 1;
-                }
-            }
-        }
-
-        for(int j = 0; j < tableau[0].length; j++)
-        {
-            nbBijouConsecutif = 1;
-            type = tableau[0][j];
-            for(int i = 1; i < tableau.length;i++)
-            {
-<<<<<<< HEAD
-                boolean estEnFinDeColonne = false;
-                if(type == tableau[i][j])
-                {
-                    nbBijouConsecutif++;
-                    if(i == tableau.length - 1)
-                    {
-                        estEnFinDeColonne = true;
-                    }
-=======
-                if(type == tableau[i][j])
-                {
-                    nbBijouConsecutif++;
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
-                }
-                if(type != tableau[i][j] || i == tableau.length - 1)
-                {
-                    if(nbBijouConsecutif >= 3)
-                    {
-                        ArrayList<Coord> ligne = new ArrayList<Coord>();
-                        for(int compteurBijou = nbBijouConsecutif; compteurBijou > 0; compteurBijou--)
-                        {
-                            ligne.add(new Coord(i - compteurBijou, j));
-                        }
-<<<<<<< HEAD
-                        if(estEnFinDeColonne)
-                        {
-                            ligne.add(new Coord(i, j));
-                        }
-=======
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
-                        lignesCombo.add(ligne);
-                    }
-                    type = tableau[i][j];
-                    nbBijouConsecutif = 1;
-                }
-            }
-        }
-        supprimeLigneCombo(lignesCombo);
-        return lignesCombo;
-    }
-<<<<<<< HEAD
- */
-=======
-
-    public void supprimeLigneCombo(ArrayList<ArrayList<Coord> > lignesCombo)
-    {
-        for(int i = 0; i < lignesCombo.size(); i++)
-        {
-            for(int j = 0; j < lignesCombo.get(i).size(); j++)
-            {
-                descendreColonne(lignesCombo.get(i).get(j));
-            }
-        }
-    }
-
-    public void descendreColonne(Coord coord)
-    {
-        for(int i = coord.getX(); i > 0; i--)
-        {
-            tableau[i][coord.getY()] = tableau[i-1][coord.getY()];
-        }
-        tableau[0][coord.getY()] = randomBijou();
-    }
-}
-
->>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
