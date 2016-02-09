@@ -6,6 +6,5 @@ public class Appli {
     {
         Model model = new Model();
         Controleur control = new Controleur(model);
-        
     }
 }

@@ -2,7 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
 
 /**
  * Created by jipay on 29/04/2015.
@@ -14,6 +17,7 @@ public class ControlButton implements ActionListener {
     private Bijou bouton1;
     private boolean bouton1selectionne;
     private Bijou bouton2;
+<<<<<<< HEAD
     private ControlMenu controlMenu;
 
     public ControlButton(Vue vue, Model model, ControlMenu controlMenu) {
@@ -24,6 +28,16 @@ public class ControlButton implements ActionListener {
         bouton2 = new Bijou();
         bouton1selectionne = false;
         this.controlMenu = controlMenu;
+=======
+
+    public ControlButton(Vue vue, Model model) {
+        this.vue = vue;
+        this.model = model;
+        ajouterAllActionListener();
+        bouton1 = new Bijou();
+        bouton2 = new Bijou();
+        bouton1selectionne = false;
+>>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
     }
 
     private boolean estProche(Bijou bijou2)
@@ -40,6 +54,7 @@ public class ControlButton implements ActionListener {
 
     public void actionPerformed(ActionEvent e)
     {
+<<<<<<< HEAD
         if(!model.getEstEnJeu())
         {
             vue.getProgressBar().start();
@@ -50,6 +65,12 @@ public class ControlButton implements ActionListener {
         if(e.getSource().getClass() == bouton1.getClass())
         {
             if(bouton1selectionne && estProche((Bijou) e.getSource()))
+=======
+        System.out.println(e.getSource().toString() + model.getBijou(((Bijou) e.getSource()).getPosition()));
+        if(e.getSource().getClass() == bouton1.getClass())
+        {
+            if(bouton1selectionne && estProche((Bijou)e.getSource()))
+>>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
             {
                 bouton2.setBackground(Color.WHITE);
                 bouton2 =(Bijou)e.getSource();
@@ -64,10 +85,15 @@ public class ControlButton implements ActionListener {
 
                 if(model.estUnCoupValide(new Coup(bouton1.getPosition(), bouton2.getPosition())))
                 {
+<<<<<<< HEAD
                     controlMenu.setHintPressed(false);
                     /*
                     try {
                         Thread.sleep(500);
+=======
+                    /*try {
+                        Thread.sleep(1000);
+>>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
                     } catch (InterruptedException e1) {
                         e1.printStackTrace();
                     }*/
@@ -82,13 +108,19 @@ public class ControlButton implements ActionListener {
                     //vue.coloreCoupPossible();
                     System.out.println("coup valide");
 
+<<<<<<< HEAD
                     /*
                     try {
                         Thread.sleep(500);
+=======
+                    /*try {
+                        Thread.sleep(1000);
+>>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
                     } catch (InterruptedException e1) {
                         e1.printStackTrace();
                     }*/
 
+<<<<<<< HEAD
                     int score = 0;
                     int newScore = 0;
                     int progres = 0;
@@ -108,6 +140,12 @@ public class ControlButton implements ActionListener {
                     /*
                     try {
                         Thread.sleep(500);
+=======
+                    vue.coloreLigneCombo();
+
+                    /*try {
+                        Thread.sleep(1000);
+>>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
                     } catch (InterruptedException e1) {
                         e1.printStackTrace();
                     }*/
@@ -115,6 +153,7 @@ public class ControlButton implements ActionListener {
                     model.actualiserCoupPossible();
                     vue.actualiserTableau();
 
+<<<<<<< HEAD
                     if(vue.getProgressBar().getValue() >= 100)
                     {
                         model.genererTableau();
@@ -129,6 +168,8 @@ public class ControlButton implements ActionListener {
                 {
                     model.enleveUnTrie();
                     vue.actualiserTries();
+=======
+>>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
                 }
             }
             else
@@ -142,6 +183,7 @@ public class ControlButton implements ActionListener {
         }
     }
 
+<<<<<<< HEAD
     public int compteScore(ArrayList<ArrayList<Coord>> lignesCombo)
     {
         int score = 0;
@@ -191,4 +233,16 @@ public class ControlButton implements ActionListener {
         return progres;
     }
 
+=======
+    private void ajouterAllActionListener()
+    {
+        for(int i = 0; i < model.getTableauBijou().length; i++)
+        {
+            for(int j = 0; j < model.getTableauBijou()[i].length; j++)
+            {
+                vue.ajouterActionListener(this, vue.getTableauBijouButton()[i][j]);
+            }
+        }
+    }
+>>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
 }

@@ -20,7 +20,11 @@ public class Bijou extends JButton {
         super();
 
         //setText(applyTexture(type));
+<<<<<<< HEAD
         //setSize(0,0);
+=======
+        setSize(200, 200);
+>>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
         this.type = type;
         this.position = position;
     }

@@ -9,8 +9,13 @@ public class Controleur {
     public Controleur(Model model)
     {
         vue = new Vue(model);
+<<<<<<< HEAD
         controlMenu = new ControlMenu(vue, model);
         controlBoutton = new ControlButton(vue, model, controlMenu);
+=======
+        controlBoutton = new ControlButton(vue, model);
+        controlMenu = new ControlMenu(vue);
+>>>>>>> a787bfda138c7240827a5684a06dd0bf7425342d
 
         vue.setVisible(true);
 
